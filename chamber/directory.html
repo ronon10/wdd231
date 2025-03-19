@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chamber of Commerce Business Directory.">
+    <meta name="author" content="Renan Alves">
+    <meta property="og:title" content="Chamber of Commerce Directory">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="IMAGE_URL">
+    <meta property="og:url" content="PAGE_URL">
+    <title>Chamber Directory</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Chamber of Commerce</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Business Directory</h2>
+        <button id="toggleView">Toggle View</button>
+        <div id="members-container" class="grid-view"></div>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> Chamber of Commerce | WDD 231</p>
+        <p>Last modified: <span id="lastModified"></span></p>
+    </footer>
+    
+    <script src="scripts/script.js"></script>
+</body>
+</html>

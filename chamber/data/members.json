@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Example Store",
+        "industry": "Retail",
+        "address": "Example Street, 123",
+        "phone": "(11) 1234-5678",
+        "website": "https://www.example.com",
+        "image": "images/varejo3.jpg",
+        "membership_level": "Silver"
+    },
+    {
+        "name": "Tech Solutions",
+        "industry": "Technology",
+        "address": "Tech Avenue, 456",
+        "phone": "(11) 9876-5432",
+        "website": "https://www.techsolutions.com",
+        "image": "images/tecnology.webp",
+        "membership_level": "Gold"
+    },
+    {
+        "name": "Taste Restaurant",
+        "industry": "Food",
+        "address": "Taste Street, 789",
+        "phone": "(11) 3456-7890",
+        "website": "https://www.tasterestaurant.com",
+        "image": "images/taste_restaurant.jpg",
+        "membership_level": "Bronze"
+    },
+    {
+        "name": "Alpha Consultancy",
+        "industry": "Consulting",
+        "address": "Consultancy Avenue, 101",
+        "phone": "(11) 1111-1111",
+        "website": "https://www.alphaconsultancy.com",
+        "image": "images/alpha_consultancy.jpg",
+        "membership_level": "Gold"
+    },
+    {
+        "name": "Creative Design",
+        "industry": "Design",
+        "address": "Creative Street, 202",
+        "phone": "(11) 2222-2222",
+        "website": "https://www.creativedesign.com",
+        "image": "images/creative_design.jpg",
+        "membership_level": "Silver"
+    },
+    {
+        "name": "Virtual Store",
+        "industry": "Retail",
+        "address": "Virtual Street, 303",
+        "phone": "(11) 3333-3333",
+        "website": "https://www.virtualstore.com",
+        "image": "images/virtual_store.jpg",
+        "membership_level": "Bronze"
+    },
+    {
+        "name": "Startup Tech",
+        "industry": "Technology",
+        "address": "Innovation Avenue, 404",
+        "phone": "(11) 4444-4444",
+        "website": "https://www.startuptech.com",
+        "image": "images/startup_tech.jpg",
+        "membership_level": "Silver"
+    }
+]

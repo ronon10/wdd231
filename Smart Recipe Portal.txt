@@ -1,0 +1,18 @@
+*Smart Recipe Portal*
+
+- General Description
+The website will be a dynamic recipe portal where users can explore various categorized options, such as fitness meals, desserts, and quick meals. The goal is to provide an interactive and intuitive platform for discovering, saving, and sharing recipes.
+
+- Features and Functionality
+.Recipe Search: Integration with a public API to display popular recipes.
+
+.Favorites: Ability to save favorite recipes using localStorage.
+
+.Submission Form: Users can add their own recipes.
+
+.Dynamic Filters: Option to filter recipes by category, preparation time, and more.
+
+.Interactive Modal: Detailed recipe display with ingredients and preparation instructions.
+
+- Motivation for Choosing This Theme
+I chose this theme because cooking is a popular and useful topic for a wide audience. Additionally, this project allows me to apply essential web development concepts, such as DOM manipulation, API usage, local storage, and responsiveness.

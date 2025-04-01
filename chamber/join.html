@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Chamber of Commerce today!">
+    <meta name="author" content="Renan Alves">
+    <title>Join the Chamber</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style3.css">
+    <link rel="stylesheet" href="styles/join.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body class="join">
+    <header>
+        <h1>Chamber of Commerce</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="form-container">
+            <h2>Join the Chamber</h2>
+            <form action="thankyou.html" method="get">
+                <label>First Name: <input type="text" name="firstName" required autocomplete="given-name"></label>
+                <label>Last Name: <input type="text" name="lastName" required autocomplete="family-name"></label>
+                <label>Organization Title: <input type="text" name="organizationTitle" required pattern="[A-Za-z\s-]{7,}" autocomplete="organization-title"></label>
+                <label>Email: <input type="email" name="email" required autocomplete="email" placeholder="example@mail.com"></label>
+                <label>Phone: <input type="tel" name="phone" required autocomplete="tel"></label>
+                <label>Company Name: <input type="text" name="companyName" required autocomplete="organization"></label>
+                <label>Membership Level:
+                    <select name="membership">
+                        <option value="NP">Non-Profit</option>
+                        <option value="Bronze">Bronze</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Gold">Gold</option>
+                    </select>
+                </label>
+                <label>Description: <textarea name="description"></textarea></label>
+                <input type="hidden" name="timestamp" id="timestamp">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section class="membership-info">
+            <h2>Membership Benefits</h2>
+            <div class="cards">
+                <div class="card" onclick="openModal('np')">Non-Profit</div>
+                <div class="card" onclick="openModal('bronze')">Bronze</div>
+                <div class="card" onclick="openModal('silver')">Silver</div>
+                <div class="card" onclick="openModal('gold')">Gold</div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> Chamber of Commerce | WDD 231</p>
+        <p>Last modified: <span id="lastModified"></span></p>
+    </footer>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/join.js"></script>
+</body>
+</html>

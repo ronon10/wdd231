@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Recipe Portal Project Plan" />
+  <meta name="author" content="Renan Alves" />
+  <meta property="og:title" content="Smart Recipe Portal" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="IMAGE_URL" />
+  <meta property="og:url" content="PAGE_URL" />
+  <title>Smart Recipe Portal</title>
+  <link rel="stylesheet" href="styles2/style.css" />
+  <link rel="icon" href="images2/favicon.ico" type="image/x-icon" />
+  <style>
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h1, h2 {
+      color: #8e3b46;
+    }
+
+    .color-box {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      border: 1px solid #000;
+    }
+
+    .wireframes {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .wireframes img {
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Smart Recipe Portal</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Site Name</h2>
+      <p><strong>Smart Recipe Portal</strong> - This name reflects the purpose of the site: a dynamic and intelligent recipe portal that helps users easily discover, save, and share recipes. The name is simple, descriptive, and relevant to its content.</p>
+    </section>
+
+    <section>
+      <h2>Site Purpose</h2>
+      <p>The site aims to provide a rich, interactive space for users to explore categorized recipes (e.g., fitness, desserts, quick meals), filter them dynamically, submit their own, and save favorites using localStorage.</p>
+    </section>
+
+    <section>
+      <h2>User Scenarios</h2>
+      <ul>
+        <li>What is a quick and healthy dinner I can make in under 30 minutes?</li>
+        <li>Can I submit my grandma’s cookie recipe to the platform?</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Color Scheme</h2>
+      <p>
+        <strong>Primary Color:</strong> #8e3b46 (used in titles, navigation, accents) <span class="color-box" style="background-color: #8e3b46;"></span><br />
+        <strong>Secondary Color:</strong> #f1dca7 (used for backgrounds and call-to-action areas) <span class="color-box" style="background-color: #f1dca7;"></span>
+      </p>
+    </section>
+
+    <section>
+      <h2>Typography</h2>
+      <p>
+        <strong>Heading Font:</strong> "Playfair Display", serif – for an elegant, recipe-magazine style<br />
+        <strong>Body Font:</strong> "Open Sans", sans-serif – for readability and a modern look
+      </p>
+    </section>
+
+    <section>
+      <h2>Wireframes</h2>
+      <div class="wireframes">
+        <figure>
+          <img src="images2/wireframe2.png" alt="Mobile Wireframe" />
+          <figcaption>Mobile Layout</figcaption>
+        </figure>
+        <figure>
+          <img src="images2/wireframe1.png" alt="Desktop Wireframe" />
+          <figcaption>Desktop Layout</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Smart Recipe Portal | WDD 231</p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts2/script.js"></script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
+</body>
+</html>

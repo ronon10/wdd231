@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Central Park",
+        "description": "A green park with trails and a lake.",
+        "image": "images/central_park.webp"
+    },
+    {
+      "name": "History Museum",
+      "description": "Historical collections and cultural exhibitions.",
+      "image": "images/history_museum.webp"
+    },
+    {
+      "name": "Liberty Square",
+      "description": "A hub for events and cultural activities.",
+      "image": "images/liberty_square.webp"
+    },
+    {
+      "name": "Shopping Center",
+      "description": "Shops, cafes, and local entertainment.",
+      "image": "images/shopping_center.webp"
+    },
+    {
+      "name": "Municipal Theater",
+      "description": "Plays, dance, and music performances.",
+      "image": "images/municipal_theater.webp"
+    },
+    {
+      "name": "Modern Art Gallery",
+      "description": "Local and contemporary art exhibits.",
+      "image": "images/art_gallery.webp"
+    },
+    {
+      "name": "Craft Fair",
+      "description": "Handmade items and local souvenirs.",
+      "image": "images/craft.webp"
+    },
+    {
+      "name": "Mountain Viewpoint",
+      "description": "Panoramic view of the city and surroundings.",
+      "image": "images/mountain.webp"
+    }
+  ]
+  

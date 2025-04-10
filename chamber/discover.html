@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover | Chamber of Commerce</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/discover.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <h1>Chamber of Commerce</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="directory.html">Directory</a>
+      <a href="discover.html">Discover</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="visit-message" id="visitMessage"></section>
+
+    <h2>Points of Interest</h2>
+    <section class="discover-grid" id="discoverGrid"></section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Chamber of Commerce</p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts/discover.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
+</body>
+</html>

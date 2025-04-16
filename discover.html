@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover new recipes and explore our collection!" />
+  <meta name="author" content="Renan Alves" />
+  <title>Discover Recipes - Smart Recipe Portal</title>
+  <link rel="stylesheet" href="styles2/discover.css" />
+  <link rel="icon" href="images2/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Smart Recipe Portal</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html" class="active">Discover</a></li>
+          <li><a href="submit.html">Submit Recipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Discover Delicious Recipes</h2>
+      <p>Filter, search, and explore all the recipes in our collection!</p>
+    </section>
+
+
+
+    
+
+
+    <section class="tools">
+      <div class="filter-group">
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="Italian">Italian</option>
+          <option value="Salad">Salad</option>
+          <option value="Vegetarian">Vegetarian</option>
+          <!-- Adicione mais categorias conforme seu JSON -->
+        </select>
+      </div>
+
+      <div class="search-group">
+        <label for="searchInput">Search Recipes:</label>
+        <input type="text" id="searchInput" placeholder="e.g., pasta, chicken, stir-fry">
+      </div>
+    </section>
+
+    <section class="all-recipes">
+      <h2>All Recipes</h2>
+      <div class="recipes-grid" id="all-recipes">
+        <!-- Receitas carregadas dinamicamente -->
+      </div>
+    </section>
+
+    <section class="favorites">
+      <h2>Your Favorite Recipes</h2>
+      <div class="recipes-grid" id="favorite-recipes">
+        <!-- Favoritos do localStorage (se houver) -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Smart Recipe Portal | WDD 231</p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts2/discover.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
+</body>
+</html>

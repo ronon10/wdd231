@@ -1,184 +1,149 @@
-document.addEventListener("DOMContentLoaded", () => {
-    updateWeather();
-    loadSpotlights();
-    loadMembers();
-    updateFooter();
-    const membersContainer = document.getElementById("members-container");
-    const toggleButton = document.getElementById("toggleView");
-    let isGridView = true;
+// script.js
 
-});
+const recipeList = document.getElementById("recipe-list");
+const recipeModal = document.getElementById("recipe-modal");
+const modalContent = document.getElementById("modal-content");
+const closeModal = document.getElementById("close-modal");
+const categoryFilter = document.getElementById("category-filter");
+const searchInput = document.getElementById("search-input");
 
-function updateWeather() {
-    const apiKey = 'a252501f4520ab1948f320ec19b044ac'; // API Key
-    const city = 'Guarulhos,BR'; 
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+let allRecipes = [];
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('City not found or request error');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Weather data:", data);
-
-            const tempElement = document.getElementById("current-temp");
-            const conditionElement = document.getElementById("weather-condition");
-            const forecastContainer = document.getElementById("forecast");
-            const cityNameElement = document.getElementById("city-name");
-
-            
-            if (cityNameElement) {
-                cityNameElement.textContent = data.city.name;
-            }
-
-            
-            if (tempElement && conditionElement) {
-                const temperature = data.list[0].main.temp.toFixed(1);
-                const weatherDescription = data.list[0].weather[0].description;
-                tempElement.textContent = `${temperature}°C`;
-                conditionElement.textContent = weatherDescription;
-            }
-
-            
-            if (forecastContainer) {
-                forecastContainer.innerHTML = "";  
-                for (let i = 0; i < 3; i++) {
-                    const dayForecast = data.list[i * 8]; 
-                    const dayCard = document.createElement("div");
-                    dayCard.classList.add("forecast-card");
-                    dayCard.innerHTML = `
-                        <h3>Day ${i + 1}</h3>
-                        <p>Temp: ${dayForecast.main.temp.toFixed(1)}°C</p>
-                        <p>${dayForecast.weather[0].description}</p>
-                    `;
-                    forecastContainer.appendChild(dayCard);
-                }
-            }
-
-           
-            const weatherContainer = document.getElementById("weather-container");
-            if (weatherContainer) {
-                weatherContainer.innerHTML = "";
-            }
-
-        })
-        .catch(error => {
-            console.error("Error fetching weather data:", error);
-            const weatherContainer = document.getElementById("weather-container");
-            if (weatherContainer) {
-                weatherContainer.innerHTML = `<p>Error loading weather. Please try again later.</p>`;
-            }
-        });
+// Função assíncrona para carregar receitas de um JSON (local ou via API)
+async function loadRecipes() {
+  try {
+    const response = await fetch("data/recipes.json");
+    const data = await response.json();
+    allRecipes = data.recipes.slice(0, 15);
+    displayRecipes(allRecipes);
+    populateCategoryFilter(allRecipes);
+  } catch (error) {
+    console.error("Erro ao carregar receitas:", error);
+  }
 }
 
-
-
-
-fetch("data/members.json")
-.then(response => response.json())
-.then(data => displayMembers(data))
-.catch(error => console.error("Error loading data:", error));
-
-function displayMembers(members) {
-membersContainer.innerHTML = "";
-members.forEach(member => {
+function displayRecipes(recipes) {
+  recipeList.innerHTML = "";
+  recipes.forEach((recipe) => {
     const card = document.createElement("div");
-    card.classList.add("card");
-    
+    card.className = "recipe-card";
+
     card.innerHTML = `
-        <h3>${member.name}</h3>
-        <p>${member.industry}</p>
-        <img src="${member.image}" alt="Image of ${member.name}" class="member-image">
-        <p><a href="${member.website}" target="_blank">Visit website</a></p>
+      <img src="${recipe.image}" alt="${recipe.title}" loading="lazy">
+      <h3>${recipe.title}</h3>
+      <button class="details-btn" data-id="${recipe.id}">Ver detalhes</button>
+      <button class="favorite-btn" data-id="${recipe.id}">❤️</button>
     `;
-    membersContainer.appendChild(card);
+
+    recipeList.appendChild(card);
+  });
+
+  document.querySelectorAll(".details-btn").forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      const id = e.target.getAttribute("data-id");
+      const recipe = allRecipes.find((r) => r.id == id);
+      openModal(recipe);
+    })
+  );
+
+  document.querySelectorAll(".favorite-btn").forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      const id = e.target.getAttribute("data-id");
+      toggleFavorite(id);
+    })
+  );
+}
+
+function openModal(recipe) {
+  modalContent.innerHTML = `
+    <h2>${recipe.title}</h2>
+    <img src="${recipe.image}" alt="${recipe.title}">
+    <p><strong>Categoria:</strong> ${recipe.category}</p>
+    <p><strong>Ingredientes:</strong></p>
+    <ul>${recipe.ingredients.map((i) => `<li>${i}</li>`).join("")}</ul>
+    <p><strong>Instruções:</strong></p>
+    <p>${recipe.instructions}</p>
+  `;
+  recipeModal.style.display = "block";
+}
+
+closeModal.addEventListener("click", () => {
+  recipeModal.style.display = "none";
 });
+
+window.addEventListener("click", (e) => {
+  if (e.target == recipeModal) {
+    recipeModal.style.display = "none";
+  }
+});
+
+function populateCategoryFilter(recipes) {
+  const categories = [...new Set(recipes.map((r) => r.category))];
+  categoryFilter.innerHTML =
+    `<option value="">Todas as categorias</option>` +
+    categories
+      .map((cat) => `<option value="${cat}">${cat}</option>`)
+      .join("");
 }
 
+categoryFilter.addEventListener("change", () => {
+  filterAndSearch();
+});
 
+searchInput.addEventListener("input", () => {
+  filterAndSearch();
+});
 
-function loadSpotlights() {
-    fetch('data/members.json') // Certifique-se de que o caminho para o arquivo JSON está correto
-        .then(response => response.json())
-        .then(data => {
-            console.log("Dados dos membros:", data);
+function filterAndSearch() {
+  const category = categoryFilter.value.toLowerCase();
+  const search = searchInput.value.toLowerCase();
 
-            // Filtra apenas membros de nível Gold ou Silver
-            const members = data.filter(member => member.membership_level === 'Gold' || member.membership_level === 'Silver');
-            
-            // Embaralha os membros e seleciona 2 ou 3 aleatórios
-            const shuffled = members.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const filtered = allRecipes.filter((recipe) => {
+    const matchesCategory = category === "" || recipe.category.toLowerCase() === category;
+    const matchesSearch = recipe.title.toLowerCase().includes(search);
+    return matchesCategory && matchesSearch;
+  });
 
-            const spotlightContainer = document.getElementById("spotlight-container");
-            if (spotlightContainer) {
-                spotlightContainer.innerHTML = ""; // Limpa qualquer conteúdo anterior
-
-                // Cria e exibe os cartões de destaque para os membros filtrados
-                shuffled.forEach(member => {
-                    const card = document.createElement("div");
-                    card.classList.add("spotlight-card");
-
-                    // Preenche o conteúdo do cartão com as informações dos membros
-                    card.innerHTML = `
-                        <h3>${member.name}</h3>
-                        <img src="${member.image}" alt="${member.name} logo" class="spotlight-logo">
-                        <p>📞 ${member.phone}</p>
-                        <p>📍 ${member.address}</p>
-                        <a href="${member.website}" target="_blank">🌐 Visit Website</a>
-                        <p class="membership-level">${member.membership_level} Member</p>
-                    `;
-
-                    // Adiciona o cartão ao container de destaque
-                    spotlightContainer.appendChild(card);
-                });
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao carregar os destaques:", error);
-        });
+  displayRecipes(filtered);
 }
 
-
-
-function loadMembers() {
-    fetch('data/members.json')
-        .then(response => response.json())
-        .then(data => {
-            if (!data || !data.members) {
-                throw new Error("Estrutura do JSON inválida.");
-            }
-            const membersContainer = document.getElementById("members-container");
-            if (!membersContainer) {
-                console.error("Elemento #members-container não encontrado.");
-                return;
-            }
-            displayMembers(data.members);
-        })
-        .catch(error => console.error("Erro ao carregar os membros:", error));
+function toggleFavorite(id) {
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  if (favorites.includes(id)) {
+    favorites = favorites.filter((f) => f !== id);
+  } else {
+    favorites.push(id);
+  }
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  alert("Recipe uploaded in favorits!");
 }
 
-function displayMembers(members) {
-    const membersContainer = document.getElementById("members-container");
-    if (!membersContainer) return;
-    
-    membersContainer.innerHTML = "";
-    members.forEach(member => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
-            <h3>${member.name}</h3>
-            <p>${member.industry}</p>
-            <img src="${member.image}" alt="Imagem de ${member.name}" class="member-image">
-            <p><a href="${member.website}" target="_blank">Visitar site</a></p>
-        `;
-        membersContainer.appendChild(card);
-    });
-}
+// Formulário de envio de receita
+const form = document.getElementById("recipe-form");
 
-function updateFooter() {
-    document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("lastModified").textContent = document.lastModified;
-}
+form?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = form.title.value;
+  const image = form.image.value;
+  const category = form.category.value;
+  const ingredients = form.ingredients.value.split(",");
+  const instructions = form.instructions.value;
+
+  const newRecipe = {
+    id: Date.now(),
+    title,
+    image,
+    category,
+    ingredients,
+    instructions
+  };
+
+  allRecipes.push(newRecipe);
+  displayRecipes(allRecipes);
+  form.reset();
+  alert("Recipes was sended with success!");
+});
+
+// Iniciar
+loadRecipes();

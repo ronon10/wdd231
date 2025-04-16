@@ -1,0 +1,64 @@
+[
+    {
+      "id": 1,
+      "title": "Spaghetti Carbonara",
+      "description": "A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+      "image": "images2/recipes/cabonara.jpeg",
+      "category": "Italian",
+      "ingredients": [
+        "Spaghetti",
+        "Pancetta",
+        "Eggs",
+        "Parmesan cheese",
+        "Black pepper"
+      ],
+      "instructions": [
+        "Cook the spaghetti according to the package instructions.",
+        "Fry the pancetta until crispy.",
+        "Mix eggs and Parmesan cheese in a bowl.",
+        "Combine pasta, pancetta, and egg mixture. Stir well.",
+        "Season with black pepper and serve."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Chicken Caesar Salad",
+      "description": "A fresh salad with grilled chicken, romaine lettuce, croutons, and Caesar dressing.",
+      "image": "images2/recipes/caesar-salad.jpg",
+      "category": "Salad",
+      "ingredients": [
+        "Chicken breast",
+        "Romaine lettuce",
+        "Croutons",
+        "Caesar dressing",
+        "Parmesan cheese"
+      ],
+      "instructions": [
+        "Grill the chicken breast and slice into strips.",
+        "Chop the lettuce and add to a bowl.",
+        "Add croutons and Caesar dressing.",
+        "Toss the salad and top with grilled chicken and Parmesan cheese."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Vegetable Stir-Fry",
+      "description": "A quick and healthy stir-fry with mixed vegetables and a soy sauce glaze.",
+      "image": "images2/recipes/vegetable-stir-fry.jpg",
+      "category": "Vegetarian",
+      "ingredients": [
+        "Bell peppers",
+        "Broccoli",
+        "Carrots",
+        "Soy sauce",
+        "Olive oil"
+      ],
+      "instructions": [
+        "Chop the vegetables into bite-sized pieces.",
+        "Heat olive oil in a pan and stir-fry the vegetables until tender.",
+        "Add soy sauce and stir to coat.",
+        "Serve over rice or noodles."
+      ]
+    }
+  ]
+  

@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renan F Alves</title>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Recipe Portal - Explore and save your favorite recipes!" />
+  <meta name="author" content="Renan Alves" />
+  <title>Smart Recipe Portal</title>
+  <link rel="stylesheet" href="styles2/style.css" />
+  <link rel="icon" href="images2/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="profile">
-            <img src="images/me.jpeg" alt="Renan">
-            <h1>Renan Alves</h1>
-        </div>
-        <button id="menu-toggle">☰</button>
-        <nav id="menu">
-            <a href="#">Home</a>
-            <a href="#">Chamber</a>
-            <a href="https://github.com/ronon10">GitHub</a>
-            <a href="https://www.linkedin.com/in/renan-alves-68691760/">LinkedIn</a>
-        </nav>
-    </header>
-    <main>
-        <section class="course-work">
-            <h2>Course Work</h2>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </section>
-        <section class="location">
-            <h2>Palmeiras</h2>
-            <img src="images/palmeiras.jpeg" alt="Palmeiras team">
-            <p>Palmeiras Team</p>
-        </section>
-        <section class="certificates">
-            <h2>Web and Computer Programming Certificate</h2>
-            <div class="filter-buttons">
-                <button>All</button>
-                <button>CSE</button>
-                <button>WDD</button>
-            </div>
-            <div class="courses">
-                <button class="cse">CSE 110</button>
-                <button class="wdd">WDD 130</button>
-                <button class="cse">CSE 111</button>
-                <button class="cse">CSE 210</button>
-                <button class="wdd">WDD 131</button>
-                <button class="wdd">WDD 231</button>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy;2025 🤡 Renan de Freitas Alves 🤠 Brazil</p>
-        <p>Last Update: 01/01/1970 12:00:00</p>
-    </footer>
-    <script src="scripts/script.js"></script>
+  <header>
+    <div class="container">
+      <h1>Smart Recipe Portal</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="submit.html">Submit Recipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Find Your Next Favorite Recipe</h2>
+      <p>Delicious, easy, and healthy meals at your fingertips.</p>
+      <a href="discover.html" class="cta-button">Explore Recipes</a>
+    </section>
+
+    <section class="featured">
+      <h2>Featured Recipes</h2>
+      <div class="recipes-grid" id="featured-recipes">
+        <!-- Dynamic recipes loaded via JavaScript -->
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>Subscribe for Updates</h2>
+      <form id="newsletter-form" aria-label="Newsletter Signup">
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p id="subscription-message" role="alert"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Smart Recipe Portal | WDD 231</p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts2/main.js" defer></script>
+  <script>
+    // Footer dynamic year and last modified date
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
 </body>
 </html>

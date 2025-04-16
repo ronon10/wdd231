@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Submit your recipe to the Smart Recipe Portal!" />
+  <meta name="author" content="Renan Alves" />
+  <title>Submit Recipe - Smart Recipe Portal</title>
+  <link rel="stylesheet" href="styles2/submit.css" />
+  <link rel="icon" href="images2/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Smart Recipe Portal</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="submit.html" class="active">Submit Recipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Submit Your Recipe</h2>
+      <p>Share your delicious recipes with others!</p>
+    </section>
+
+    <section class="form-section">
+      <h2>Recipe Submission Form</h2>
+      <form id="recipe-form">
+        <div class="form-group">
+          <label for="recipe-name">Recipe Name:</label>
+          <input type="text" id="recipe-name" name="recipe-name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="ingredients">Ingredients:</label>
+          <textarea id="ingredients" name="ingredients" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="instructions">Instructions:</label>
+          <textarea id="instructions" name="instructions" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Recipe Image URL:</label>
+          <input type="url" id="image" name="image" required />
+        </div>
+
+        <button type="submit" class="cta-button">Submit Recipe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Smart Recipe Portal | WDD 231</p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts2/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
+</body>
+</html>
